@@ -1,0 +1,63 @@
+{% extends 'FrontendContentBundle::_frontendContainer.html.twig' %}
+{% block title %}{{project.title}}{% endblock %}
+
+{% block titlePage %}{{project.title}}{% endblock %}
+
+{% block meta_title %}
+    {% if project.meta %}
+       {{project.meta.metaTitle}}
+    {% endif %}
+{% endblock %}
+{% block meta_description %}
+    {% if project.meta %}
+        {{project.meta.metaDescription}}
+    {% endif %}
+{% endblock %}
+{% block meta_keywords %}
+    {% if project.meta %}
+        {{project.meta.metaKeywords}}
+    {% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{parent()}}
+    <link href="{{ asset('/css/prettyPhoto.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+    
+{% block javascripts %}
+    {{parent()}}
+    <script src="{{ asset('/js/jquery.prettyPhoto.js') }}" type="text/javascript"></script>
+    <script type="text/javascript">
+        $().ready(function(){
+            Frontend.singlePrettyPhoto('admin_image');
+        })
+    </script>
+{% endblock %}
+    
+{% block breadCrumb %}
+    <ul class="breadcrumb">
+        <li><a href="/">{% trans from 'content'%}Home page{% endtrans %}</a> <span class="divider">/</span></li>
+        <li><a href="/projects">{% trans from 'content'%}Projects{% endtrans %}</a> <span class="divider">/</span></li>
+        {% if year is not null%}
+            <li><a href="/projects/year/{{year}}">{{year}}</a> <span class="divider">/</span></li>
+        {% endif %}
+        <li class="active">{{project.title}}</li>
+    </ul>
+{% endblock %}
+
+{% block sidebar %}
+    {% render "FrontendContentBundle:Menu:sidebarYearsMenu" %}
+{% endblock %}
+    
+{% block content %}
+    <div class="item_news">
+       {% for img in project.images %}
+            {% if loop.index == 1%}
+            <img src="{{img.webPath | apply_filter('550x319_thumb')}}" alt="{{img.title}}"/>
+            {% endif %}
+        {% endfor %}
+       {{project.description|raw}}
+       {% include 'FrontendContentBundle:Project:_images.html.twig' with {'images': project.images}%}
+       {% include 'FrontendContentBundle:Project:_files.html.twig' with {'files': project.files}%}
+   </div>
+{% endblock %}

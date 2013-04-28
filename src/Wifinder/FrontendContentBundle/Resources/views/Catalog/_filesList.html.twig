@@ -1,0 +1,57 @@
+{% if tone %}
+<div class="files_block">
+    <table class="documents">
+        <thead>
+            <tr class="gradient-darck table-header">
+                <th colspan="2">{% trans from 'content'%}Product Tones{% endtrans %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{% trans from 'content' %}Category{% endtrans %}</td>
+                <td>{% trans from 'content' %}Alert Type{% endtrans %}</td>
+            </tr>
+            {% for file in cert %}
+                <tr>
+                    <td><a href="{{file.webPath}}"><img src="/images/ipod_sound.png"> {{file.title}}</a></td>
+                    <td>{{file.description}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+
+{% if lit %}
+<div class="files_block">
+    <table class="documents">
+        <thead>
+            <tr class="gradient-darck table-header"><th>{% trans from 'content'%}Literature{% endtrans %}</th></tr>
+        </thead>
+        <tbody>
+            {% for file in lit %}
+                <tr>
+                    <td><a href="{{file.webPath}}">{{file.title}}</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+
+{% if cert %}
+<div class="files_block">
+    <table class="documents">
+        <thead>
+            <tr class="gradient-darck table-header"><th>{% trans from 'content'%}Approvals/Certifications{% endtrans %}</th></tr>
+        </thead>
+        <tbody>
+            {% for file in cert %}
+                <tr>
+                    <td><a href="{{file.webPath}}">{{file.title}}</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}

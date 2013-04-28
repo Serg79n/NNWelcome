@@ -1,0 +1,13 @@
+{% if items | length > 0%}
+<ul class="last_review">
+    {% for item in items %}
+        <li>
+            <span class="data_publish">{{ item.created|date("d.m.Y") }}</span><br/>
+            <h3 class="user">{{item.user}}</h3>
+            {{item.review|raw}}
+        </li>
+    {% endfor %}
+</ul><br/>
+<a href="/reviews">{% trans from "content" %}View all...{% endtrans %}</a>
+{% endif %}
+

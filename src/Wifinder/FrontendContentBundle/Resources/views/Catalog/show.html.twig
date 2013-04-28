@@ -1,0 +1,47 @@
+{% extends 'FrontendContentBundle::_frontendContainer.html.twig' %}
+
+{% block title %}{{ content.title }}{% endblock %}
+
+{% block titlePage %}{{ content.title }}{% endblock %}
+
+{% block meta_title %}
+    {% if content.meta %}
+       {{content.meta.metaTitle}}
+    {% endif %}
+{% endblock %}
+{% block meta_description %}
+    {% if content.meta %}
+        {{content.meta.metaDescription}}
+    {% endif %}
+{% endblock %}
+{% block meta_keywords %}
+    {% if content.meta %}
+        {{content.meta.metaKeywords}}
+    {% endif %}
+{% endblock %}
+
+{% block breadCrumb %}{% endblock %}
+
+{% block content %}
+   <div class="product_images">
+       {% for img in content.images%}
+           <img src="{{img.webPath}}" alt="{{img.title}}"/>
+       {% endfor %}
+   </div>
+   <div class="clear"></div>
+   <div>{{ content.shortDescription | raw }}</div>
+   <div>{{ content.description | raw }}</div>
+   
+   {% render "FrontendContentBundle:Catalog:filesList" with {"files" : content.files }%}
+   
+   {% render "FrontendContentBundle:WebItem:renderItem" with {"alias" : "buy"} %}
+{% endblock %}
+
+{% block sidebar %}
+    {% render "FrontendContentBundle:Menu:sidebarMenu" with {"alias" : content.parent.alias } %}
+{% endblock %}
+   
+{% block right_sidebar %}
+    {{ parent() }}
+    {% include "FrontendContentBundle:WebItem:_renderListItems.html.twig" with {"web_items" : content.webItems} %}
+{% endblock %}

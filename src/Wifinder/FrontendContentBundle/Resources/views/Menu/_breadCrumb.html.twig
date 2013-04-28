@@ -1,0 +1,16 @@
+<ul class="breadcrumb">
+    <li><a href="/">{% trans from 'content'%}Home page{% endtrans %}</a> <span class="divider">/</span></li>
+    {% if items|length > 0 %}
+        {% for item in items %}
+            {% if item.alias != alias %}
+                <li><a href="{{ item.link }}">{% filter lower %}{{ item.title|capitalize }}{% endfilter %}</a> <span class="divider">/</span></li>
+            {% else %}
+                <li class="active">{{ item.title|capitalize }}</li>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        {% if alias == 'reviews'%}
+            <li class="active">{% trans from 'content'%}Reviews{% endtrans %}</li>
+        {% endif %}
+    {% endif %}
+</ul>

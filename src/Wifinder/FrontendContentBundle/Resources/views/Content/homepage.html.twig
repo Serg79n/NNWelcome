@@ -1,0 +1,59 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{{content.title}}{% endblock %}
+
+{% block titlePage %}{{content.title}}{% endblock %}
+
+{% block meta_title %}
+    {% if content.meta %}
+       {{content.meta.metaTitle}}
+    {% endif %}
+{% endblock %}
+{% block meta_description %}
+    {% if content.meta %}
+        {{content.meta.metaDescription}}
+    {% endif %}
+{% endblock %}
+{% block meta_keywords %}
+    {% if content.meta %}
+        {{content.meta.metaKeywords}}
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+   {{content.content|raw}}
+    
+{% endblock %}
+
+{% block slider %}
+   {% render "FrontendContentBundle:WebItem:renderItem" with {"alias" : "slider"} %}
+{% endblock %}
+
+{% block carousel %}
+    <div id="carousel_distributors">
+        <h2>{% trans from 'content'%}SUPPLIERS{% endtrans %}</h2>
+        <div class="distributors"></div>
+    </div>
+{% endblock %}
+
+{% block news_homepage %}
+    <div id="block_homepage_news">
+        <div class="span4">
+            <h2>{% trans from 'content'%}NEWS{% endtrans %}</h2>
+            {% render "FrontendContentBundle:News:lastNewsOnHomePage" with {"category" : "main", "limit" : 3} %}
+        </div>
+        <div class="span4">
+            <h2>{% trans from 'content'%}PROJECTS{% endtrans %}</h2>
+            {% render "FrontendContentBundle:Project:lastProjectOnHomePage" with {"limit" : 3} %}
+        </div>
+        <div class="span4">
+            <h2>{% trans from 'content'%}REVIEWS{% endtrans %}</h2>
+            {% render "FrontendContentBundle:Review:lastReviewOnHomePage" with {"limit" : 1} %}
+        </div>
+        <div class="clear"></div>
+        <div class="span4"><a href="/news" class="align_right">{% trans from 'content'%}View all news »{% endtrans %}</a></div>
+        <div class="span4"><a href="/projects" class="align_right">{% trans from 'content'%}View all projects »{% endtrans %}</a></div>
+        <div class="span4"><a href="/reviews" class="align_right">{% trans from 'content'%}View all reviews »{% endtrans %}</a></div>
+        <div class="clear"></div>
+    </div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'FrontendContentBundle::_frontendContainer.html.twig' %}
+
+{% block title %}{{news.title}}{% endblock %}
+
+{% block titlePage %}{{news.title}}{% endblock %}
+
+{% block meta_title %}
+    {% if news.meta %}
+       {{news.meta.metaTitle}}
+    {% endif %}
+{% endblock %}
+{% block meta_description %}
+    {% if news.meta %}
+        {{news.meta.metaDescription}}
+    {% endif %}
+{% endblock %}
+{% block meta_keywords %}
+    {% if news.meta %}
+        {{news.meta.metaKeywords}}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="item_news">
+       <div class="data_publish">{{ news.publish|date("d.m.Y") }}</div>
+       {% for img in news.images %}
+            {% if loop.index == 1%}
+            <img src="{{img.webPath | apply_filter('550x319_thumb')}}" alt="{{img.title}}"/>
+            {% endif %}
+        {% endfor %}
+       {{news.content|raw}}
+       {% include 'FrontendContentBundle:News:_images.html.twig' with {'images': news.images}%}
+   </div>
+{% endblock %}
+
+{% block breadCrumb %}
+    <ul class="breadcrumb">
+        <li><a href="/">{% trans from 'content'%}Home page{% endtrans %}</a> <span class="divider">/</span></li>
+        <li><a href="/news">{% trans from 'content'%}News{% endtrans %}</a> <span class="divider">/</span></li>
+        <li><a href="/news/{{news.category.alias}}">{{news.category.title}}</a> <span class="divider">/</span></li>
+        <li class="active">{{news.title}}</li>
+    </ul>
+{% endblock %} 

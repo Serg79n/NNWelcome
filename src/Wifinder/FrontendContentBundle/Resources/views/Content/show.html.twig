@@ -1,0 +1,36 @@
+{% set layout = '_frontendContainerWithoutLeftMenu.html.twig' %}
+{% set test = 'FrontendContentBundle::' ~ layout %}
+{% extends test %}
+
+{% block title %}{{content.title}}{% endblock %}
+
+{% block titlePage %}{{content.title}}{% endblock %}
+
+{% block meta_title %}
+    {% if content.meta %}
+       {{content.meta.metaTitle}}
+    {% endif %}
+{% endblock %}
+{% block meta_description %}
+    {% if content.meta %}
+        {{content.meta.metaDescription}}
+    {% endif %}
+{% endblock %}
+{% block meta_keywords %}
+    {% if content.meta %}
+        {{content.meta.metaKeywords}}
+    {% endif %}
+{% endblock %}
+
+{% block sidebar %}
+   {% render "FrontendContentBundle:Menu:sidebarMenu" with {"alias" : content.alias } %}
+{% endblock %}
+
+{% block content %}
+   {{content.content|raw}}
+{% endblock %}
+
+{% block right_sidebar %}
+    {{ parent() }}
+    {% include "FrontendContentBundle:WebItem:_renderListItems.html.twig" with {"web_items" : content.webItems} %}
+{% endblock %}

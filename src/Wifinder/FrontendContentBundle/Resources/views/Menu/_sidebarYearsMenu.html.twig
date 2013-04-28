@@ -1,0 +1,14 @@
+<ul class="nav nav-pills nav-stacked" id="sidebar-nav">
+    {% for item in items %}
+        <li {% if item.alias == active%}class="active"{% endif %}>
+            <a href="/projects/year/{{item.alias}}"> 
+                {{ item.alias}}
+            </a>
+        </li>
+    {% endfor %}
+    <li {% if active is null %}class="active"{% endif %}>
+        <a href="/projects/year/reset"> 
+            {% trans from 'content'%}All Years{% endtrans %}
+        </a>
+    </li>
+</ul>

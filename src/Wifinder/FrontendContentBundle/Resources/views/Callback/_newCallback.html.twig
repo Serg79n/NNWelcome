@@ -1,0 +1,42 @@
+<div id="callbackModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">{% trans from 'content'%}Form request a callback{% endtrans %}</h3>
+    </div>
+    <div class="modal-body">
+        <form action="{{ path('request_callback')}}" {{ form_enctype(form) }} id="callback_form">
+            <div>
+                {{form_errors(form.first_name) }}
+                {{ form_widget(form.first_name) }}
+            </div>
+            <div>
+                {{form_errors(form.middle_name) }}
+                {{ form_widget(form.middle_name) }}
+            </div>
+            <div>
+                {{form_errors(form.last_name) }}
+                {{ form_widget(form.last_name) }}
+            </div>
+            <div>
+                {{form_errors(form.email) }}
+                {{ form_widget(form.email) }}
+            </div>
+            <div>
+                {{form_errors(form.phone) }}
+                {{ form_widget(form.phone) }}
+            </div>
+            <div>
+                {{form_errors(form.callback_text) }}
+                {{ form_widget(form.callback_text) }}
+            </div>
+                {{ form_widget(form._token) }}
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">
+            <i class="icon-remove"></i> {% trans from "content" %}Cansel{% endtrans %}</button>
+        <button class="btn btn-wifinder" id="button_callback_form">
+            <i class="icon-trash icon-white"></i> {% trans from "content" %}Submit{% endtrans %}
+        </button>
+    </div>
+</div>
