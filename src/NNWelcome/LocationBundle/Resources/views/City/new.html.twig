@@ -1,0 +1,19 @@
+{% extends '::_adminContainer.html.twig' %}
+
+{% block title %}{% trans from "admin_location" %}City creation{% endtrans %}{% endblock %}
+
+{% block titlePage %}{% trans from "admin_location" %}City creation{% endtrans %}{% endblock %}
+
+{% block content %}
+<form action="{{ path('admin_city_create') }}" method="post" {{ form_enctype(form) }}  class="main_form">
+        {{form_row(form.is_active)}}
+        {{form_widget(form.translations) }}
+        {{form_errors(form.translations) }}
+        {{ form_widget(form._token) }}
+        {{ form_widget(form.action) }}
+</form>
+{% endblock %}
+
+{% block sidebar %}
+    {% include "LocationBundle:City:_newFormActions.html.twig" %}
+{% endblock %}

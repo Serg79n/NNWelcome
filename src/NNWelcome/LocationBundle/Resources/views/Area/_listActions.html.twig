@@ -1,0 +1,19 @@
+<ul class="nav nav-tabs nav-stacked">
+    <li>
+        <a href="{{ path('admin_city') }}"><i class="icon-list"></i> {% trans from "admin_location" %}Back to the list city{% endtrans %}</a>
+    </li>
+    <li>
+        <a href="{{ path('admin_city_edit', {'id' : city_id}) }}"><i class="icon-edit"></i> {% trans from "admin_location" %}Back to edit city{% endtrans %}</a>
+    </li>
+    <li class="gap"></li>
+    <li>
+        <a href="#filterProjectModal" role="button" data-toggle="modal">
+            <i class="icon-filter"></i> {% trans from "admin_location" %}Filter{% endtrans %}
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('admin_area_new', {'city_id' : city_id }) }}">
+            <i class="icon-plus"></i> {% trans from "admin_location" %}Create a new entry{% endtrans %}
+        </a>
+    </li>
+</ul>

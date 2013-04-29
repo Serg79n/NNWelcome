@@ -1,0 +1,26 @@
+{% if content %}
+    <div>
+        <div class="product_block_header gradient-darck"><span>Products</span></div>
+        {% set i = 0 %}
+        {% for one in content%}
+            <div class="product_block">
+                 <div class="product_thumb">
+                     {% if one.images|length > 0 %}
+                     <a href="{{ path('NNWelcome_frontend_catalog_show', {'category': alias, 'alias' : one.alias}) }}">
+                         <img src="{{ one.images[0].webPath }}" alt="{{ one.images[0].title }}"/>
+                     </a>
+                     {% endif %}
+                 </div>
+                 <div class="product_title">
+                     <a href="{{ path('NNWelcome_frontend_catalog_show', {'category': alias, 'alias' : one.alias}) }}">{{one.title}}</a>
+                 </div>
+            </div>
+            {% set i = i+1 %}
+            {% if (i == 4)%}
+                <div class="clear bottom_border"></div>
+                {% set i = 0 %}
+            {% endif %}
+        {% endfor %}
+        <div class="clear"></div>     
+    </div>
+{% endif %}
