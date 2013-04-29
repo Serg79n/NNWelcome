@@ -1,7 +1,4 @@
 <form action="{{ path('frontend_search_catalog') }}" method="post" {{ form_enctype(form) }}>
-    <div class="input-append">
-    {{form_widget(form.text)}}
-       <span class="add-on"><i class="icon-search"></i></span>
-    </div>
+    {{form_widget(form.text, { 'attr': {'id': 'search_field', 'placeholder':'Поиск на сайте'}})}}
     {{form_widget(form._token)}}
 </form>

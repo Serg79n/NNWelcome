@@ -1,6 +1,7 @@
 <div class="clear"></div>
 <div class="navbar">
     <ul class="nav">
+        <li class="separator">&nbsp;</li>
         {% for item in items %}
             
             {% set class = '' %}
@@ -12,13 +13,17 @@
                 <a href="{{ item.link }}">{{ item.title }}</a>
             </li>
             {% if loop.length != loop.index %}
-            <li class="separator"> | </li>
+            <li class="separator">&nbsp;</li>
             {% endif %}
         {% endfor %}
+        <li class="separator">&nbsp;</li>       
     </ul>
-    <ul class="nav pull-right">
-        <li id="callback">
-            <a href="#callbackModal" role="button" data-toggle="modal">{% trans from 'content'%}REQUEST A CALLBACK{% endtrans %}</a>
+    <ul class="nav pull-right" id="button_journey">
+        <li>
+            <a href="#" role="button" data-toggle="modal" class="main_button">{% trans from 'content'%}CHOOSE A JOURNEY{% endtrans %}</a>
+        </li>
+        <li id="checkbox_for_children">
+            <label>Для детей <input type="checkbox" /></label>
         </li>
     </ul>
 </div>

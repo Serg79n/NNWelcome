@@ -67,10 +67,7 @@ class ContentController extends Controller
         return $this->createFormBuilder($defaultData)
             ->add('text', 'text', array(
                 'required' => true,
-                'max_length' => 255,
-                'attr' => array(
-                    'id' => 'prependedInput' 
-                )
+                'max_length' => 255
             ))
             ->getForm()
         ;

@@ -23,37 +23,32 @@
     <body>
         <div id="main_container">
             <div class="row-fluid" id="header">
-                <div class="span12">
-                    <div class="float_block" id="logotype_block">
+                <div id="logotype_block">
+                    <div class="phone"><span>+7 831</span> 230 3038</div>
+                    <div id="site_name">
                         <a href="/">
-                            <img src="/images/logotype.png" alt="Wifinder"/>
+                        НИЖЕГОРОДСКИЙ<br/>
+                        ТУРИСТСКО<br/>
+                        ИНФОРМАЦИОННЫЙ<br/>
+                        ЦЕНТР
                         </a>
                     </div>
-                    <div class="float_block" id="slogan_block">
-                        {% render "FrontendContentBundle:WebItem:renderItem" with {"alias" : "slogan"} %}
-                    </div>
-                    <div class="float_block" id="search_block">
-                        {% render "FrontendContentBundle:Content:search" %}
-                    </div>
+                </div>
+                <div id="top_menu_block">
                     <div id="info_block">
-                        <div id="registration_box">
-                            <a class="login_link" href="#" onclick="alert('{% trans from 'content'%}Access is denied!{% endtrans %}')">{% trans from 'content'%}Login{% endtrans %}</a> | <a class="registration_link" href="#" onclick="alert('{% trans from 'content'%}Access is denied!{% endtrans %}')">{% trans from 'content'%}Registration{% endtrans %}</a>
-                        </div>
-                        <div id="language_switcher">
+                        <div id="info">
                             {% render "FrontendContentBundle:Menu:languageSwitcher" with {'request' : app.request} %}
                         </div>
-                        <div id="contacts_box">
-                            {% render "FrontendContentBundle:WebItem:renderItem" with {"alias" : "phone"} %}
+                        <div id="search_block">
+                            {% render "FrontendContentBundle:Content:search" %}
                         </div>
                     </div>
+                    {% render "FrontendContentBundle:Menu:topMenu" with {"alias" : "main"} %}
                 </div>
-                {% render "FrontendContentBundle:Menu:topMenu" with {"alias" : "main"} %}
             </div>
             {% block slider %}{% endblock %}
-            <div class="container-fluid" id="content">
-                <div class="row-fluid"> 
-                    {% block body %}{% endblock %}
-                </div>
+            <div class="row-fluid" id="content"> 
+                {% block body %}{% endblock %}
             </div>
             {% block carousel %}{% endblock %}
             {% block news_homepage %}{% endblock %}
@@ -69,7 +64,7 @@
             <script src="{{ asset('/js/jquery.cookie.js') }}" type="text/javascript"></script>
             <script src="{{ asset('/js/shadowbox/shadowbox.js') }}" type="text/javascript"></script>
             <script src="{{ asset('/js/frontend.js') }}" type="text/javascript"></script>
-            <script src="//yandex.st/share/share.js" charset="utf-8" type="text/javascript"></script>
+            <script src="http://yandex.st/share/share.js" charset="utf-8" type="text/javascript"></script>
             <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAuEWnU0Y7zzQr0xlyJ5sHoUOH2JWxc4OU&amp;sensor=true&amp;callback=initialize"></script>
         {% endblock %}
         {% render "FrontendContentBundle:Callback:newCallback"%}

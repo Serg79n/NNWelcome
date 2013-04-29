@@ -30,30 +30,68 @@
 {% endblock %}
 
 {% block carousel %}
-    <div id="carousel_distributors">
-        <h2>{% trans from 'content'%}SUPPLIERS{% endtrans %}</h2>
-        <div class="distributors"></div>
+
+    <div id="homepage_gallery">
+        <img style="float: left" src="images/img2.jpg" alt=""/>
+        <img style="float: right" src="images/img3.jpg" alt=""/>
+        <div class="clear"></div>
+    </div>
+    <div id="spetion_projects">
+        <h2>СПЕЦИАЛЬНЫЕ<br/>ПРОЕКТЫ</h2>
+        <div class="projects">
+            <div class="box">
+                <div class="container_spetion_project_img">
+                    <img src="images/img1.jpg" alt=""/>
+                </div>  
+                <div class="container_spetion_project_text">
+                    <h3>Неизвестный Нижний</h3>
+                    <p>айны и секреты города, крошечные 
+                        детали, хранящие дух времени, 
+                        истории горожан</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="container_spetion_project_img">
+                    <img src="images/img1.jpg" alt=""/>
+                </div>  
+                <div class="container_spetion_project_text">
+                    <h3>Неизвестный Нижний</h3>
+                    <p>айны и секреты города, крошечные 
+                        детали, хранящие дух времени, 
+                        истории горожан</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="container_spetion_project_img">
+                    <img src="images/img1.jpg" alt=""/>
+                </div>  
+                <div class="container_spetion_project_text">
+                    <h3>Неизвестный Нижний</h3>
+                    <p>айны и секреты города, крошечные 
+                        детали, хранящие дух времени, 
+                        истории горожан</p>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
     </div>
 {% endblock %}
 
 {% block news_homepage %}
     <div id="block_homepage_news">
+        <h2>НОВОСТИ</h2>
         <div class="span4">
-            <h2>{% trans from 'content'%}NEWS{% endtrans %}</h2>
-            {% render "FrontendContentBundle:News:lastNewsOnHomePage" with {"category" : "main", "limit" : 3} %}
+            <h3>МАСЛЕНИЧНЫЙ РАЗГУЛЯЙ В НИЖНЕМ НОВГОРОДЕ И ОБЛАСТИ!</h3>
+            <p>Испокон веков на Руси было принято провожать зиму и встречать весну народными гуляньями - празднованием Масленицы! Мы подготовили для вас несколько вариантов </p>
         </div>
         <div class="span4">
-            <h2>{% trans from 'content'%}PROJECTS{% endtrans %}</h2>
-            {% render "FrontendContentBundle:Project:lastProjectOnHomePage" with {"limit" : 3} %}
+            <h3>МАСЛЕНИЧНЫЙ РАЗГУЛЯЙ В НИЖНЕМ НОВГОРОДЕ И ОБЛАСТИ!</h3>
+            <p>Испокон веков на Руси было принято провожать зиму и встречать весну народными гуляньями - празднованием Масленицы! Мы подготовили для вас несколько вариантов </p>
         </div>
         <div class="span4">
-            <h2>{% trans from 'content'%}REVIEWS{% endtrans %}</h2>
-            {% render "FrontendContentBundle:Review:lastReviewOnHomePage" with {"limit" : 1} %}
+            <h3>МАСЛЕНИЧНЫЙ РАЗГУЛЯЙ В НИЖНЕМ НОВГОРОДЕ И ОБЛАСТИ!</h3>
+            <p>Испокон веков на Руси было принято провожать зиму и встречать весну народными гуляньями - празднованием Масленицы! Мы подготовили для вас несколько вариантов </p>
         </div>
-        <div class="clear"></div>
-        <div class="span4"><a href="/news" class="align_right">{% trans from 'content'%}View all news »{% endtrans %}</a></div>
-        <div class="span4"><a href="/projects" class="align_right">{% trans from 'content'%}View all projects »{% endtrans %}</a></div>
-        <div class="span4"><a href="/reviews" class="align_right">{% trans from 'content'%}View all reviews »{% endtrans %}</a></div>
         <div class="clear"></div>
     </div>
 {% endblock %}
