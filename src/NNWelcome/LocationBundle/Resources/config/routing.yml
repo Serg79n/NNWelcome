@@ -1,0 +1,99 @@
+admin_city:
+    pattern:  /city
+    defaults: { _controller: "LocationBundle:City:index" }
+
+admin_city_new:
+    pattern:  /city/new
+    defaults: { _controller: "LocationBundle:City:new" }
+
+admin_city_create:
+    pattern:  /city/create
+    defaults: { _controller: "LocationBundle:City:create" }
+    requirements:
+        _method: POST
+        
+admin_city_edit:
+    pattern:  /city/{id}/edit
+    defaults: { _controller: "LocationBundle:City:edit" }
+    requirements:
+        id:  \d+
+        
+admin_city_update:
+    pattern:  /city/{id}/update
+    defaults: { _controller: "LocationBundle:City:update" }
+    requirements:
+        id:  \d+
+        _method: POST
+        
+admin_city_delete:
+    pattern:  /city/{id}/delete
+    defaults: { _controller: "LocationBundle:City:delete" }
+    requirements:
+        id:  \d+
+        _method: POST
+        
+admin_city_change_active:
+  pattern:  /city/changeActive
+  defaults: { _controller: LocationBundle:City:changeActive, active: 0 }
+
+admin_city_filter:
+  pattern:  /city/filter
+  defaults: { _controller: LocationBundle:City:filter}
+  
+admin_city_reset_filter:
+  pattern: /city/reset_filter
+  defaults: { _controller: LocationBundle:City:resetFilter}
+
+admin_area:
+    pattern:  /city/{city_id}/area
+    defaults: { _controller: "LocationBundle:Area:index" }
+    requirements:
+        city_id:  \d+
+
+admin_area_new:
+    pattern:  /city/{city_id}/area/new
+    defaults: { _controller: "LocationBundle:Area:new" }
+    requirements:
+        city_id:  \d+
+
+admin_area_create:
+    pattern:  /city/{city_id}/area/create
+    defaults: { _controller: "LocationBundle:Area:create" }
+    requirements:
+        city_id:  \d+
+        _method: POST
+        
+admin_area_edit:
+    pattern:  /city/{city_id}/area/{id}/edit
+    defaults: { _controller: "LocationBundle:Area:edit" }
+    requirements:
+        city_id:  \d+
+        id:  \d+
+        
+admin_area_update:
+    pattern:  /city/{city_id}/area/{id}/update
+    defaults: { _controller: "LocationBundle:Area:update" }
+    requirements:
+        city_id:  \d+
+        id:  \d+
+        _method: POST
+        
+admin_area_delete:
+    pattern:  /city/{city_id}/area/{id}/delete
+    defaults: { _controller: "LocationBundle:Area:delete" }
+    requirements:
+        city_id:  \d+
+        id:  \d+
+        _method: POST
+        
+admin_area_change_active:
+  pattern:  /area/changeActive
+  defaults: { _controller: LocationBundle:Area:changeActive, active: 0 }
+  
+admin_area_filter:
+  pattern:  /city/{city_id}/area/filter
+  defaults: { _controller: LocationBundle:Area:filter}
+  
+admin_area_reset_filter:
+  pattern: /city/{city_id}/area/reset_filter
+  defaults: { _controller: LocationBundle:Area:resetFilter}
