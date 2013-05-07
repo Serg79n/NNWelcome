@@ -10,7 +10,7 @@
             {% endif %}
             
             <li class="item{{class}}">
-                <a href="{{ item.link }}">{{ item.title }}</a>
+                <a href="{{ item.link }}"><span>{{ item.title }}</span></a>
             </li>
             {% if loop.length != loop.index %}
             <li class="separator">&nbsp;</li>

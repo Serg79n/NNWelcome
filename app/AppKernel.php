@@ -39,6 +39,7 @@ class AppKernel extends Kernel
             new NNWelcome\CallbackBundle\CallbackBundle(),
             new NNWelcome\LayoutBundle\LayoutBundle(),
             new NNWelcome\LocationBundle\LocationBundle(),
+            new NNWelcome\NticBundle\NticBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -1,0 +1,49 @@
+<?php
+// src/NNWelcome/NticBundle/Entity/ObjectType.php
+
+namespace NNWelcome\NticBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @ORM\Table(name="object_type")
+ * @ORM\Entity(repositoryClass="NNWelcome\NticBundle\Entity\Repository\ObjectTypeRepository")
+ * @Gedmo\TranslationEntity(class="NNWelcome\NticBundle\Entity\ObjectTypeTranslation")
+ */
+class ObjectType {
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    
+    /**
+     * @Gedmo\Translatable
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $title; 
+    
+     /**
+     * @ORM\ManyToOne(
+     *   targetEntity="NNWelcome\NticBundle\Entity\EntityType", 
+     *   inversedBy="object")
+     * @ORM\JoinColumn(
+     *   name="entity_type_id", 
+     *   referencedColumnName="id", 
+     *   onDelete="CASCADE")
+     */
+    protected $entity_type;
+    
+    /**
+    * @ORM\OneToMany(
+     *   targetEntity="NNWelcome\NticBundle\Entity\Hotel", 
+     *   mappedBy="object", 
+     *   cascade={"persist", "remove"})
+    */
+    protected $hotel;
+}

@@ -1,0 +1,138 @@
+<?php
+
+//src/NNWelcome/NticBundle/Entity/Hotel.php
+
+namespace NNWelcome\NticBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
+/**
+ * @ORM\Table(name="hotel")
+ * @ORM\Entity(repositoryClass="NNWelcome\NticBundle\Entity\Repository\HotelRepository")
+ * @Gedmo\TranslationEntity(class="NNWelcome\NticBundle\Entity\HotelTranslation")
+ * @UniqueEntity(fields="alias", message="Sorry, this alias is already in use.", groups={"Hotel"})
+ */
+class Hotel {
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $sort;
+    
+    /**
+     * @ORM\Column(type="string", length=100, unique=true)
+     * @Assert\NotBlank(message="Please enter alias.", groups={"Hotel"})
+     * @Assert\Regex( 
+     *       pattern="/^[a-z,A-Z,\_,\-,0-9]+$/",
+     *       message="Alias can contain only letters, numbers and symbols '_' , '-'.", 
+     *       groups={"Project"}
+     * )
+     */
+    protected $alias;
+    
+    /**
+     * @Gedmo\Translatable
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    protected $title;
+    
+    /**
+     * @Gedmo\Translatable
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $short_description;
+    
+    /**
+     * @Gedmo\Translatable
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $description;
+    
+    /**
+     * @Gedmo\Translatable
+     * @ORM\Column(type="string", length=200, nullable=true)
+     */
+    protected $operator;
+    
+    /**
+     * @ORM\Column(type="decimal", nullable=true)
+     */
+    protected $longitude;
+    
+    /**
+     * @ORM\Column(type="decimal", nullable=true)
+     */
+    protected $latitude;
+    
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    protected $is_active = true;
+
+    /**
+     * @ORM\OneToMany(
+     *   targetEntity="HotelTranslation",
+     *   mappedBy="object",
+     *   cascade={"persist", "remove"}
+     * )
+     */
+    private $translations;
+    
+    /**
+    * @ORM\OneToMany(
+     *   targetEntity="HotelImage", 
+     *   mappedBy="hotel", 
+     *   cascade={"persist", "remove"})
+    */
+    private $images;
+    
+    /**
+    * @ORM\OneToMany(
+     *   targetEntity="HotelFile", 
+     *   mappedBy="hotel", 
+     *   cascade={"persist", "remove"})
+    */
+    private $files;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="HotelMeta", 
+     *   mappedBy="hotel", 
+     *   cascade={"persist", "remove"})
+    */
+    protected $meta;
+    
+    /**
+     * @ORM\ManyToOne(
+     *   targetEntity="ObjectType", 
+     *   inversedBy="hotel")
+     * @ORM\JoinColumn(
+     *   name="object_id", 
+     *   referencedColumnName="id", 
+     *   onDelete="CASCADE")
+     */
+    private $object;
+    
+    /**
+     * @ORM\ManyToOne(
+     *   targetEntity="Price", 
+     *   inversedBy="hotel")
+     * @ORM\JoinColumn(
+     *   name="price_id", 
+     *   referencedColumnName="id", 
+     *   onDelete="CASCADE")
+     */
+    private $price;
+    
+    protected $action;
+}

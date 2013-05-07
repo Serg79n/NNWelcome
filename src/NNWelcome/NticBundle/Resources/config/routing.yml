@@ -1,0 +1,15 @@
+NNWelcome_ntic_hotel:
+    resource: "@NticBundle/Resources/config/routing/hotel.yml"
+    prefix:   /hotel
+    
+NNWelcome_ntic_price:
+    resource: "@NticBundle/Resources/config/routing/price.yml"
+    prefix:   /price
+    
+NNWelcome_ntic_entity:
+    resource: "@NticBundle/Resources/config/routing/entity.yml"
+    prefix:   /entity_type
+    
+NNWelcome_ntic_object_type:
+    resource: "@NticBundle/Resources/config/routing/object_type.yml"
+    prefix:   /object_type

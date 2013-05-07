@@ -1,0 +1,26 @@
+admin_entity:
+    pattern:  /
+    defaults: { _controller: "NticBundle:EntityType:index" }
+
+admin_entity_new:
+    pattern:  /new
+    defaults: { _controller: "NticBundle:EntityType:new" }
+
+admin_entity_create:
+    pattern:  /create
+    defaults: { _controller: "NticBundle:EntityType:create" }
+    requirements: { _method: post }
+
+admin_entity_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "NticBundle:EntityType:edit" }
+
+admin_entity_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "NticBundle:EntityType:update" }
+    requirements: { _method: post }
+
+admin_entity_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "NticBundle:EntityType:delete" }
+    requirements: { _method: post }

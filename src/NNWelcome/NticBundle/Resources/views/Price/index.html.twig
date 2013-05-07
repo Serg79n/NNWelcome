@@ -1,0 +1,29 @@
+{% extends '::_adminContainer.html.twig' %}
+
+{% block title %}{% trans from "admin_price"%}Price list{% endtrans %}{% endblock %}
+
+{% block titlePage %}{% trans from "admin_price"%}Price list{% endtrans %}{% endblock %}
+
+{% block content %}
+    <table class="records_list table table-condensed table-hover table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>{% trans from "admin_price" %}Range{% endtrans %}</th>
+                <th>{% trans from "admin_price" %}Actions{% endtrans %}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in pagination %}
+            <tr>
+                <td>{{ entity.from }} - {{entity.to}}</td>
+                <td>{% include "NticBundle:Price:_listItemActions.html.twig" %}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% include "NticBundle:Price:_pagination.html.twig" %}
+{% endblock %}
+
+{% block sidebar %}
+    {% include "NticBundle:Price:_listActions.html.twig" %}
+{% endblock %}

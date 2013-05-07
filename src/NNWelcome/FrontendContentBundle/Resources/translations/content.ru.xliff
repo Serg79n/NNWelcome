@@ -47,12 +47,8 @@
                 <target>Форма заявки на обратную связь</target>
             </trans-unit>
             <trans-unit id="12">
-                <source>Subscribe</source>
-                <target>Подписаться</target>
-            </trans-unit>
-            <trans-unit id="13">
-                <source>to news</source>
-                <target>на новости</target>
+                <source>SUBSCRIBE TO NEWS</source>
+                <target>ПОДПИСАТЬСЯ НА НОВОСТИ</target>
             </trans-unit>
             <trans-unit id="14">
                 <source>E-mail address</source>

@@ -1,0 +1,34 @@
+<?php
+// src/NNWelcome/NticBundle/Entity/EntityType.php
+
+namespace NNWelcome\NticBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Table(name="entity_type")
+ * @ORM\Entity(repositoryClass="NNWelcome\NticBundle\Entity\Repository\EntityTypeRepository")
+ */
+class EntityType {
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $title; 
+    
+    /**
+    * @ORM\OneToMany(
+     *   targetEntity="NNWelcome\NticBundle\Entity\ObjectType", 
+     *   mappedBy="entity_type", 
+     *   cascade={"persist", "remove"})
+    */
+    protected $object; 
+}

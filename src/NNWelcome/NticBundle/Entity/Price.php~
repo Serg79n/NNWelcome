@@ -1,0 +1,39 @@
+<?php
+//src/NNWelcome/NticBundle/Entity/Price.php
+
+namespace NNWelcome\NticBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Table(name="price")
+ * @ORM\Entity(repositoryClass="NNWelcome\NticBundle\Entity\Repository\PriceRepository")
+ */
+class Price {
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    protected $from;
+    
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    protected $to;
+    
+    /**
+    * @ORM\OneToMany(
+     *   targetEntity="NNWelcome\NticBundle\Entity\Hotel", 
+     *   mappedBy="price", 
+     *   cascade={"persist", "remove"})
+    */
+    protected $hotel; 
+}

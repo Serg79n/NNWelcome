@@ -1,0 +1,38 @@
+admin_hotel:
+    pattern:  /
+    defaults: { _controller: "NticBundle:Hotel:index" }
+
+admin_hotel_new:
+    pattern:  /new
+    defaults: { _controller: "NticBundle:Hotel:new" }
+
+admin_hotel_create:
+    pattern:  /create
+    defaults: { _controller: "NticBundle:Hotel:create" }
+    requirements: { _method: post }
+
+admin_hotel_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "NticBundle:Hotel:edit" }
+
+admin_hotel_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "NticBundle:Hotel:update" }
+    requirements: { _method: post }
+
+admin_hotel_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "NticBundle:Hotel:delete" }
+    requirements: { _method: post }
+    
+admin_hotel_change_active:
+  pattern:  /changeActive
+  defaults: { _controller: NticBundle:Hotel:changeActive, active: 0 }
+  
+admin_hotel_filter:
+  pattern:  /filter
+  defaults: { _controller: NticBundle:Hotel:filter}
+  
+admin_hotel_reset_filter:
+  pattern: /reset_filter
+  defaults: { _controller: NticBundle:Hotel:resetFilter}

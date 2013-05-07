@@ -1,0 +1,26 @@
+admin_price:
+    pattern:  /
+    defaults: { _controller: "NticBundle:Price:index" }
+
+admin_price_new:
+    pattern:  /new
+    defaults: { _controller: "NticBundle:Price:new" }
+
+admin_price_create:
+    pattern:  /create
+    defaults: { _controller: "NticBundle:Price:create" }
+    requirements: { _method: post }
+
+admin_price_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "NticBundle:Price:edit" }
+
+admin_price_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "NticBundle:Price:update" }
+    requirements: { _method: post }
+
+admin_price_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "NticBundle:Price:delete" }
+    requirements: { _method: post }

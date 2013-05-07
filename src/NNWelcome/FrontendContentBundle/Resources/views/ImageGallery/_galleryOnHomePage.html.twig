@@ -1,0 +1,27 @@
+<div id="{{alias}}_Carousel" class="carousel slide">
+  <ol class="carousel-indicators">
+      {% for item in items %}
+          {% if loop.index == 1%}
+          <li data-target="#{{alias}}_Carousel" data-slide-to="{{loop.index - 1}}" class="active"></li>
+          {% else %}
+          <li data-target="#{{alias}}_Carousel" data-slide-to="{{loop.index - 1}}"></li>
+          {% endif %}
+      {% endfor %}
+  </ol>
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+      {% set size = size ~ '_thumb'%}
+      {% for item in items %}
+          {% if loop.index == 1%}
+          <div class="active item">
+          {% else %}
+          <div class="item">
+          {% endif %}
+              <img src="{{item.webPath | apply_filter(size)}}" alt=""/>
+          </div>
+      {% endfor %}
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#{{alias}}_Carousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#{{alias}}_Carousel" data-slide="next">&rsaquo;</a>
+</div>
