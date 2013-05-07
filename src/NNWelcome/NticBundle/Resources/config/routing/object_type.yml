@@ -1,0 +1,26 @@
+admin_object_type:
+    pattern:  /
+    defaults: { _controller: "NticBundle:ObjectType:index" }
+
+admin_object_type_new:
+    pattern:  /new
+    defaults: { _controller: "NticBundle:ObjectType:new" }
+
+admin_object_type_create:
+    pattern:  /create
+    defaults: { _controller: "NticBundle:ObjectType:create" }
+    requirements: { _method: post }
+
+admin_object_type_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "NticBundle:ObjectType:edit" }
+
+admin_object_type_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "NticBundle:ObjectType:update" }
+    requirements: { _method: post }
+
+admin_object_type_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "NticBundle:ObjectType:delete" }
+    requirements: { _method: post }

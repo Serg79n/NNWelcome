@@ -132,9 +132,12 @@ jms_i18n_routing:
 avalanche_imagine:
     cache_prefix: uploads/images/cache
     filters:
-        550x319_thumb:
+        380x200_thumb:
             type:    thumbnail
-            options: { size: [550, 319], mode: inset }
+            options: { size: [380, 200], mode: outbound }
+        600x200_thumb:
+            type:    thumbnail
+            options: { size: [600, 200], mode: outbound }
         220x220_thumb:
             type:    thumbnail
             options: { size: [220, 220], mode: outbound, quality: 70 }

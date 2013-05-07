@@ -1,0 +1,31 @@
+{% extends '::_adminContainer.html.twig' %}
+
+{% block title %}{% trans from "admin_object_type"%}Object Type list{% endtrans %}{% endblock %}
+
+{% block titlePage %}{% trans from "admin_object_type"%}Object Type list{% endtrans %}{% endblock %}
+
+{% block content %}
+    <table class="records_list table table-condensed table-hover table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>{% trans from "admin_object_type" %}Title{% endtrans %}</th>
+                <th>{% trans from "admin_object_type" %}Entity Type{% endtrans %}</th>
+                <th>{% trans from "admin_object_type" %}Actions{% endtrans %}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in pagination %}
+            <tr>
+                <td>{{ entity.title }}</td>
+                <td>{{ entity.entityType.title }}</td>
+                <td>{% include "NticBundle:ObjectType:_listItemActions.html.twig" %}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% include "NticBundle:ObjectType:_pagination.html.twig" %}
+{% endblock %}
+
+{% block sidebar %}
+    {% include "NticBundle:ObjectType:_listActions.html.twig" %}
+{% endblock %}

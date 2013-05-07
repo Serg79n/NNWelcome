@@ -5,6 +5,37 @@ var Frontend = {
         this.submitCallback();
         this.submitReview();
         this.heightRightSidebar();
+        this.pins();
+    },
+    pins : function(){
+        var count = 0;
+        var img = $('#map_img img');
+        var imgLength = img.length - 1;
+        var timer = $.timer(function() {
+                if(count >= imgLength)
+                    count = 0;
+                $('#map_img img').fadeOut('500');
+                $('#map_img div').eq(count).find('img').fadeIn('500');
+                count++;
+        });
+        timer.set({ time : 3000, autostart : true });
+        
+        $('#map_pins div').hover(
+            function(){
+                timer.pause();
+                $('#map_img img').fadeOut('500');
+                var i = $('#map_pins div').index(this);
+                $('#map_img div').eq(i).find('img').fadeIn('500');
+            },
+            function(){
+                timer.play();
+                var i = $('#map_pins div').index(this);
+                $('#map_img div').eq(i).find('img').fadeOut('500');
+            }
+        ); 
+    },
+    startTimer : function(){
+        
     },
     heightRightSidebar : function(){
         var hSidebar = $('#siderbar_right').height();

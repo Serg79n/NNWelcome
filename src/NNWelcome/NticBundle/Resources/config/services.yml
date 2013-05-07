@@ -1,0 +1,7 @@
+parameters:
+#    nn_welcome_ntic.example.class: NNWelcome\NticBundle\Example
+
+services:
+#    nn_welcome_ntic.example:
+#        class: %nn_welcome_ntic.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

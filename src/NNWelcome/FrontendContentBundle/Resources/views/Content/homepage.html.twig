@@ -21,8 +21,11 @@
 {% endblock %}
 
 {% block body %}
-   {{content.content|raw}}
-    
+   <div id="homepage_map">
+       <h1>{{content.title}}</h1>
+       {{content.content|raw}}  
+   </div>
+   {% render "FrontendContentBundle:Menu:lineMenu" with {"alias" : "categories", 'prefix' : 'categories'} %}
 {% endblock %}
 
 {% block slider %}
@@ -30,48 +33,92 @@
 {% endblock %}
 
 {% block carousel %}
-
     <div id="homepage_gallery">
-        <img style="float: left" src="images/img2.jpg" alt=""/>
-        <img style="float: right" src="images/img3.jpg" alt=""/>
+        <div id="photo_walk">
+            {% render 'FrontendContentBundle:ImageGallery:GalleryOnHomePage' with {'alias' : 'photo_walk', 'size' : '380x200'}%}
+        </div>
+        <div id="events">
+            {% render 'FrontendContentBundle:ImageGallery:GalleryOnHomePage' with {'alias' : 'events', 'size' : '600x200'}%}
+        </div>
         <div class="clear"></div>
     </div>
     <div id="spetion_projects">
         <h2>СПЕЦИАЛЬНЫЕ<br/>ПРОЕКТЫ</h2>
-        <div class="projects">
-            <div class="box">
-                <div class="container_spetion_project_img">
-                    <img src="images/img1.jpg" alt=""/>
-                </div>  
-                <div class="container_spetion_project_text">
-                    <h3>Неизвестный Нижний</h3>
-                    <p>айны и секреты города, крошечные 
-                        детали, хранящие дух времени, 
-                        истории горожан</p>
+            <div id="projects_Carousel" class="carousel slide projects">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="box">
+                            <div class="container_spetion_project_img">
+                                <img src="images/img1.jpg" alt=""/>
+                            </div>  
+                            <div class="container_spetion_project_text">
+                                <h3>Неизвестный Нижний</h3>
+                                <p>айны и секреты города, крошечные 
+                                    детали, хранящие дух времени, 
+                                    истории горожан</p>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="container_spetion_project_img">
+                                <img src="images/img1.jpg" alt=""/>
+                            </div>  
+                            <div class="container_spetion_project_text">
+                                <h3>Неизвестный Нижний</h3>
+                                <p>айны и секреты города, крошечные 
+                                    детали, хранящие дух времени, 
+                                    истории горожан</p>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="container_spetion_project_img">
+                                <img src="images/img1.jpg" alt=""/>
+                            </div>  
+                            <div class="container_spetion_project_text">
+                                <h3>Неизвестный Нижний</h3>
+                                <p>айны и секреты города, крошечные 
+                                    детали, хранящие дух времени, 
+                                    истории горожан</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="box">
+                            <div class="container_spetion_project_img">
+                                <img src="images/img1.jpg" alt=""/>
+                            </div>  
+                            <div class="container_spetion_project_text">
+                                <h3>Неизвестный Нижний</h3>
+                                <p>айны и секреты города, крошечные 
+                                    детали, хранящие дух времени, 
+                                    истории горожан</p>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="container_spetion_project_img">
+                                <img src="images/img1.jpg" alt=""/>
+                            </div>  
+                            <div class="container_spetion_project_text">
+                                <h3>Неизвестный Нижний</h3>
+                                <p>айны и секреты города, крошечные 
+                                    детали, хранящие дух времени, 
+                                    истории горожан</p>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="container_spetion_project_img">
+                                <img src="images/img1.jpg" alt=""/>
+                            </div>  
+                            <div class="container_spetion_project_text">
+                                <h3>Неизвестный Нижний</h3>
+                                <p>айны и секреты города, крошечные 
+                                    детали, хранящие дух времени, 
+                                    истории горожан</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="box">
-                <div class="container_spetion_project_img">
-                    <img src="images/img1.jpg" alt=""/>
-                </div>  
-                <div class="container_spetion_project_text">
-                    <h3>Неизвестный Нижний</h3>
-                    <p>айны и секреты города, крошечные 
-                        детали, хранящие дух времени, 
-                        истории горожан</p>
-                </div>
-            </div>
-            <div class="box">
-                <div class="container_spetion_project_img">
-                    <img src="images/img1.jpg" alt=""/>
-                </div>  
-                <div class="container_spetion_project_text">
-                    <h3>Неизвестный Нижний</h3>
-                    <p>айны и секреты города, крошечные 
-                        детали, хранящие дух времени, 
-                        истории горожан</p>
-                </div>
-            </div>
+                <a class="carousel-control left" href="#projects_Carousel" data-slide="prev">&lsaquo;</a>
+                <a class="carousel-control right" href="#projects_Carousel" data-slide="next">&rsaquo;</a>
         </div>
         <div class="clear"></div>
     </div>

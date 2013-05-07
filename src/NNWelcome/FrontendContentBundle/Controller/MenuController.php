@@ -36,6 +36,18 @@ class MenuController extends Controller {
                         'FrontendContentBundle:Menu:_topMenu.html.twig', array('items' => $items)
         );
     }
+    
+     public function lineMenuAction($alias, $prefix) {
+        $em = $this->getDoctrine()->getRepository('MenuBundle:MenuItem');
+        $items = $em->GetItemsTopLevelForParentAlias($alias);
+
+        return $this->render(
+            'FrontendContentBundle:Menu:_lineMenu.html.twig', 
+                array(
+                    'items' => $items,
+                    'prefix' => $prefix)
+        );
+    }
 
     public function sidebarMenuAction($alias) {
         $em = $this->getDoctrine()->getRepository('MenuBundle:MenuItem');

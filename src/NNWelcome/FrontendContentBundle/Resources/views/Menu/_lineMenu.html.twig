@@ -1,6 +1,6 @@
-<ul class="nav">
+<ul class="nav {{prefix}}_menu">
     {% for item in items %}
-        <li>
+        <li class="item_line_menu_{{item.alias}}">
             <a href="{{ item.link }}">{{ item.title }}</a>
         </li>
     {% endfor %}

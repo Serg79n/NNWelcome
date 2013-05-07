@@ -60,12 +60,10 @@
         {% block javascripts %}
             <script src="{{ asset('/js/jquery-1.9.1.js') }}" type="text/javascript"></script>
             <script src="{{ asset('/js/bootstrap.min.js') }}" type="text/javascript"></script>
-            <script src="{{ asset('/js/jquery.treeview.js') }}" type="text/javascript"></script>
-            <script src="{{ asset('/js/jquery.cookie.js') }}" type="text/javascript"></script>
-            <script src="{{ asset('/js/shadowbox/shadowbox.js') }}" type="text/javascript"></script>
-            <script src="{{ asset('/js/frontend.js') }}" type="text/javascript"></script>
-            <script src="http://yandex.st/share/share.js" charset="utf-8" type="text/javascript"></script>
-            <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAuEWnU0Y7zzQr0xlyJ5sHoUOH2JWxc4OU&amp;sensor=true&amp;callback=initialize"></script>
+            <script src="{{ asset('/js/jquery.timer.js') }}" type="text/javascript"></script>
+            {#<script src="http://yandex.st/share/share.js" charset="utf-8" type="text/javascript"></script>
+            <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAuEWnU0Y7zzQr0xlyJ5sHoUOH2JWxc4OU&amp;sensor=true&amp;callback=initialize"></script>#}
+             <script src="{{ asset('/js/frontend.js') }}" type="text/javascript"></script>
         {% endblock %}
         {% render "FrontendContentBundle:Callback:newCallback"%}
     </body>

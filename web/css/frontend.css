@@ -10,7 +10,7 @@ body{
     background-size: cover;
     font: 75% Tahoma, Verdana, Arial, Helvetica, sans-serif;
     margin: 0;
-    text-align: center;
+    /*text-align: center;*/
     color: #000000;
     min-width: 760px;
 }
@@ -60,7 +60,7 @@ body{
 .phone{
     font-size: 20px;
     color: #a8a5a8;
-    padding-left: 29px;
+    padding-left: 72px;
 }
 #site_name{
     padding: 40px 0 0 70px;
@@ -99,6 +99,20 @@ body{
 #top_menu_block .navbar .nav > li.separator{
     border-left: groove #fff 3px;
     padding: 10px 2px;
+}
+#top_menu_block .navbar .nav > .active > a, #top_menu_block .navbar .nav > .active > a:hover, #top_menu_block .navbar .nav > .active > a:focus {
+    color: #777777;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+#top_menu_block .navbar .nav > li.item a span{
+    padding-bottom: 2px;
+}
+#top_menu_block .navbar .nav > .active > a span, #top_menu_block .navbar .nav > .active > a:hover span, #top_menu_block .navbar .nav > .active > a:focus span{
+    border-bottom: 1px solid #ff742a;
 }
 #top_menu_block #button_journey{
     width: 232px;
@@ -160,7 +174,18 @@ body{
     border-radius: 10px;
 }
 #footer{
+    height: 66px;
     background: #9b9b9c;
+    padding-top: 25px;
+    color: #666665;
+}
+#footer a{
+    text-decoration: underline;
+    color: #666665;
+}
+#footer input{
+    border: rgb(139, 138, 138) 1px solid;
+    background: rgb(163, 163, 163);
 }
 #spetion_projects{
     margin-top: 20px;
@@ -180,7 +205,7 @@ body{
     width: 813px
 }
 #spetion_projects .projects .box{
-    width: 260px;
+    width: 255px;
     float: left;
 }
 #spetion_projects .projects .container_spetion_project_img{
@@ -188,7 +213,7 @@ body{
 }
 #spetion_projects .projects .container_spetion_project_text{
     float: left;
-    width: 188px;
+    width: 182px;
     text-align: left;
     text-justify: inherit;
 }
@@ -220,4 +245,164 @@ body{
 }
 #homepage_gallery{
     margin-top: 20px;
+}
+
+.carousel-control {
+    background: transparent;
+    border: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    top: 50%;
+}
+.carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border: 1px solid rgb(119, 118, 118);
+    border-radius: 3px;
+}
+.carousel-indicators .active {
+    background-color: #f85d0d;
+}
+.carousel-indicators {
+    top: 180px;
+}
+#homepage_gallery #photo_walk{
+    width: 380px;
+    float: left;
+}
+#homepage_gallery #events{
+    margin-left: 20px;
+    width: 600px;
+    float: left;
+}
+#homepage_map{
+    background: url(../images/nn_map.png) right -22px no-repeat;
+    height: 470px;
+    color: #fff;
+    text-shadow: 0 0 3px #777777;
+}
+#homepage_map h1{
+    font-weight: 100;
+    padding: 30px 0;
+    margin: 0;
+}
+
+
+
+
+.categories_menu{
+    position: absolute;
+    top: 495px;
+    width: 1000px;
+}
+.categories_menu a{
+    font-size: 19px;
+    color: #fff;
+    text-decoration: none;
+    padding-left: 20px;
+    display: block;
+}
+.categories_menu.nav > li > a:hover, .categories_menu.nav > li > a:focus{
+    text-shadow: 0 0 3px #fff;
+    background: transparent;
+}
+.categories_menu li{
+    float: left;
+    text-align: left;
+}
+.categories_menu .item_line_menu_routes{
+    background: url(../images/routes.png) center no-repeat;
+    padding: 50px 0 36px;
+    width: 250px;
+}
+.categories_menu .item_line_menu_excursions{
+    background: url(../images/excursions.png) center no-repeat;
+    padding: 50px 0 36px;
+    width: 240px;
+}
+.categories_menu .item_line_menu_calendar{
+    background: url(../images/calendar.png) center no-repeat;
+    padding: 48px 0 38px;
+    width: 255px;
+}
+.categories_menu .item_line_menu_crafts{
+    background: url(../images/crafts.png) center no-repeat;
+    padding: 50px 0 36px;
+    width: 255px;
+}
+#projects_Carousel .carousel-control{
+    color: #ccc;
+    width: 20px;
+}
+#projects_Carousel .carousel-control.left{
+    left: 0;
+}
+#projects_Carousel .carousel-control.right {
+    right: 5px;
+}
+#projects_Carousel{
+    margin-bottom: 0;
+}
+#projects_Carousel .carousel-inner {
+    padding: 0 21px;
+    width: 772px;
+}
+#homepage_map #map_pins, #homepage_map #map_img{
+    position: absolute;
+    margin-left: 618px;
+    top: 140px;
+    width: 382px;
+    height: 355px;
+}
+#homepage_map #map_pins div, #homepage_map #map_img div{
+    position: absolute;
+    list-style: none;
+    font-size: 10px;
+    line-height: 1;
+}
+#homepage_map #map_pins div a{
+    color: #000;
+    text-decoration: none;
+}
+#homepage_map #map_pins div .big_pin{
+    font-size: 14px;
+}
+#homepage_map #map_img img{
+    display: none;
+    position: absolute;
+    top: -36px;
+    left: -32px;
+    z-index: 1000;
+}
+#footer #box1, #footer #box2, #footer #box3, #footer #box4, #footer #box5{
+    float: left;
+    height: 100%;
+}
+#footer #box1 ul, #footer #box2 ul, #footer #box3 ul, #footer #box4 ul, #footer #box5 ul{
+    margin-left: 0;
+}
+#footer #box1 ul li, #footer #box2 ul li, #footer #box3 ul li, #footer #box4 ul li, #footer #box5 ul li{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#footer #box1{
+    width: 230px;
+}
+#footer #box1 #logotype{
+    margin-left: 20px; 
+}
+#footer #box2{
+    width: 240px;
+}
+#footer #box3{
+    width: 120px;
+}
+#footer #box4{
+    width: 130px;
+}
+#footer #box5{
+    width: 280px;
 }
